@@ -2,9 +2,10 @@ name: Node.js Package
 
 on:
   workflow_call:
-    secrets:
+    inputs:
       NPM_TOKEN:
         required: true
+        type: string
 
 jobs:
 
@@ -52,6 +53,6 @@ jobs:
         with:
             name: ${{ jobs.build.outputs.artifact-name }}
             path: ./build
-            
+
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
