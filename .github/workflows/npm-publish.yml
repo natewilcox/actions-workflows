@@ -47,5 +47,11 @@ jobs:
         # if: github.event_name == 'release'
         run: npm run build && cd build && npm publish --access public
 
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+            name: ${{ jobs.build.outputs.artifact-name }}
+            path: ./build
+            
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
