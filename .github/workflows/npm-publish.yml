@@ -1,10 +1,10 @@
 name: Node.js Package
 
 on:
-  push:
-    branches: [ "main" ]
-  release:
-    types: [created]
+  workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: true
 
 jobs:
 
