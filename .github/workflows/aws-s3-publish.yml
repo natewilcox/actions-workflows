@@ -9,9 +9,6 @@ on:
       S3_BUCKET_NAME:
         required: true
         type: string
-      ARTIFACT_NAME:
-        required: true
-        type: string
     secrets:
       AWS_ACCESS_KEY_ID:
         required: true
