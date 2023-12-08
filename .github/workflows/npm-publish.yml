@@ -43,6 +43,9 @@ jobs:
         # if: github.event_name == 'release'
         run: npm run build
 
+      - name: Use secret
+        run: echo ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to NPM
         # if: github.event_name == 'release'
         run: npm run build && cd build && npm publish --access public
