@@ -36,15 +36,15 @@ jobs:
 
       - name: Publish to NPM
         # if: github.event_name == 'release'
-        run: npm publish --access public
-
+        run: npm run build && cd build && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
             name: 'app-build-artifact'
             path: ./build
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Patch version
         # if: github.event_name == 'release'
