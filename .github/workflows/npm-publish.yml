@@ -52,7 +52,8 @@ jobs:
         run: |
           git config --local user.email "natewilcox@gmail.com"
           git config --local user.name "GitHub Action"
-
+          
+          npm whoami
           npm version patch -m "Automated version bump [skip ci]"
           git push
         env:
